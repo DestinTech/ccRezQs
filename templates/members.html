@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body%}
+
+<div class ="block1">
+	<h1> Hello {{name}}!</h1>
+	<h2>How's {{dog_name}} today?</h2>
+
+
+	{% for message in message_set %}
+     <div class="container" >
+		<span ><h6>{{name}}:</h6><i><p>{{message["message"]}}</p></i>
+		<br/>
+    </div>
+	{% endfor %}
+
+</div>
+
+    <footer>
+    <form action="/message_post" method="post">
+            <div>
+                <textarea style="min-width: 60%" name="transmission" placeholder="{{dog_name}}'s status..."></textarea>
+                <input type="text" name="hidden_id" hidden value="{{id}}">
+                <input type="submit" name="submit" value="Do Something" >
+            </div>
+
+    </form>
+    </footer>
+{% endblock %} 
